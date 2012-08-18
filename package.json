@@ -4,9 +4,7 @@
   "description": "Streaming HID events in Node.js",
   "main": "index.js",
   "dependencies": {
-    "optimist": "~0.3.4",
-    "node-hid": "~0.0.15",
-    "serialport": "~1.0.4"
+    "node-hid": "~0.0.15"
   },
   "devDependencies": {},
   "repository": {
