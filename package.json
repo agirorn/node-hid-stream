@@ -1,0 +1,22 @@
+{
+  "name": "hidstream",
+  "version": "0.0.0",
+  "description": "Streaming HID events in Node.js",
+  "main": "index.js",
+  "dependencies": {
+    "optimist": "~0.3.4",
+    "node-hid": "~0.0.15",
+    "serialport": "~1.0.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexxy/hidstream.git"
+  },
+  "keywords": [
+    "HID",
+    "stream"
+  ],
+  "author": "Emily Rose",
+  "license": "BSD"
+}
