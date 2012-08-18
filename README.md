@@ -32,3 +32,9 @@ __The user has pressed Ctrl + Alt + Del__
 	, errorStatus : false
 }
 ```
+
+### Status
+
+Right now, hidstream is only parsing keyboard events, and has no awareness of HID feature reports.
+After keyboard events are being parsed properly, I will add support for feature reports and other devices such as mice.
+
