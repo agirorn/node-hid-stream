@@ -13,8 +13,11 @@
   },
   "keywords": [
     "HID",
-    "stream"
+    "stream",
+    "human",
+    "input",
+    "device"
   ],
-  "author": "Emily Rose",
-  "license": "BSD"
+  "author": "Emily Rose <emily@contactvibe.com>",
+  "license": "MIT"
 }
