@@ -16,7 +16,7 @@ dev.on("data", function(dat) {
 });
 ```
 
-### Sample HID Data Packet:
+### Sample HID Data Events:
 
 __The user has pressed Ctrl + Alt + Del__
 ```
@@ -28,13 +28,27 @@ __The user has pressed Ctrl + Alt + Del__
 	, keyCodes : [
 		76
 	]
-	, keyChars : [] // not yet implemented
+	, keyChars : []
 	, errorStatus : false
+}
+```
+
+__The user has pressed w, a, s & d (simultaneously (why? I don't know))__
+```
+{ 
+	modKeys: [] // none pressed
+  	, keyCodes: [ 
+  		26, 4, 22, 7 
+  	]
+  	, charCodes: [ 
+  		'w', 'a', 's', 'd' 
+  	]
+  	, errorStatus: false 
 }
 ```
 
 ### Status
 
 Right now, hidstream is only parsing keyboard events, and has no awareness of HID feature reports.
-After keyboard events are being parsed properly, I will add support for feature reports and other devices such as mice.
+After keyboard events are being parsed properly (and fully), I will add support for feature reports and other devices such as mice.
 
