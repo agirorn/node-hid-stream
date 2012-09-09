@@ -28,9 +28,15 @@
 		return this;
 	};
 
+	function getDevices() {
+
+		return hid.devices();
+	};
+
 	util.inherits(hidDevice, stream.Stream);
 
 	exports.device = hidDevice;
 	exports.parser = hidParsers;
+	exports.getDevices = getDevices;
 
 })();
