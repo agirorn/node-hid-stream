@@ -1,6 +1,6 @@
 {
   "name": "hidstream",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Streaming HID events in Node.js",
   "main": "index.js",
   "dependencies": {
