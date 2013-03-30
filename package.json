@@ -4,7 +4,7 @@
   "description": "Streaming HID events in Node.js",
   "main": "index.js",
   "dependencies": {
-    "node-hid": "~0.0.15"
+    "node-hid": "~0.2.3"
   },
   "devDependencies": {},
   "repository": {
