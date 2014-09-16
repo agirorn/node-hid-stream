@@ -14,11 +14,15 @@ function hidDevice(path, opts) {
 
 		return new Error("Invalid parser function specified");
 	}
-
+	var dev = this;
 	this.opts = opts;
 	this.path = path;
 	this.device = new hid.HID(path);
+	this.close = function close() {
 
+		dev.device && dev.device.close()
+		dev.emit('close')
+	}
 	stream.Stream.call(this);
 
 	this.parser = opts.parser.bind(this);
