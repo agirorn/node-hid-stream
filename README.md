@@ -6,7 +6,7 @@ __Streaming HID Events in Node.js__
 
 ### Example:
 
-```
+```javascript
 var hid = require('hidstream');
 var dev = new hid.device('0001:001:00');
 
@@ -19,7 +19,7 @@ dev.on("data", function(dat) {
 ### Sample HID Data Events:
 
 __The user has pressed Ctrl + Alt + Del__
-```
+```javascript
 {
 	modKeys : [
 		, 'ctrl'
@@ -34,7 +34,7 @@ __The user has pressed Ctrl + Alt + Del__
 ```
 
 __The user has pressed w, a, s & d (simultaneously (why? I don't know))__
-```
+```javascript
 { 
 	modKeys: [] // none pressed
   	, keyCodes: [ 
