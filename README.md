@@ -80,3 +80,7 @@ Right now, hidstream is only parsing keyboard events, and has no awareness of HI
 
 After keyboard events are being parsed properly (and fully), I will add support for feature reports and other devices such as mice.
 
+### Contributions
+
+Significant refactor contributed by [@kubat](http://github.com/kubat)
+
