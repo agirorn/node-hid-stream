@@ -29,15 +29,15 @@ dev.on("data", function(dat) {
 __The user has pressed Ctrl + Alt + Del__
 ```javascript
 {
-    modifiers = {
-        l_shift:   false,
-        l_control: true,
-        l_alt:     true,
-        l_meta:    false,
-        r_ctrl:    false,
-        r_shift:   false,
-        r_alt:     false,
-        r_meta:    false
+    modifiers : {
+        l_shift :   false,
+        l_control : true,
+        l_alt :     true,
+        l_meta :    false,
+        r_ctrl :    false,
+        r_shift :   false,
+        r_alt :     false,
+        r_meta :    false
     },
     keyCodes : [
         76
