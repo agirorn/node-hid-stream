@@ -1,10 +1,10 @@
 {
   "name": "hidstream",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Streaming HID events in Node.js",
   "main": "index.js",
   "dependencies": {
-    "node-hid": "^0.3.1"
+    "node-hid": "^0.3.2"
   },
   "devDependencies": {},
   "repository": {
@@ -19,5 +19,11 @@
     "device"
   ],
   "author": "Emily Rose <emily@contactvibe.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Rony Kubat",
+      "email": "rony@kubat.org"
+    }
+  ]
 }
