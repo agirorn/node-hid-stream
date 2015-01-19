@@ -54,15 +54,15 @@ Additionally, `empty()` returns true if there is no modifier or key currently do
 __The user has pressed w, a, s & d (simultaneously (why? I don't know))__
 ```javascript
 {
-    modifiers = {
-        l_shift:   false,
-        l_control: true,
-        l_alt:     true,
-        l_meta:    false,
-        r_ctrl:    false,
-        r_shift:   false,
-        r_alt:     false,
-        r_meta:    false
+    modifiers : {
+        l_shift :   false,
+        l_control : true,
+        l_alt :     true,
+        l_meta :    false,
+        r_ctrl :    false,
+        r_shift :   false,
+        r_alt :     false,
+        r_meta :    false
     },
     keyCodes: [
         26, 4, 22, 7
