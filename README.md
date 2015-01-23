@@ -17,7 +17,7 @@ Data parsers are available for:
 
 ```javascript
 var hid = require('hidstream');
-var dev = new hid.device('0001:001:00', { hid.parser.keyboard });
+var dev = new hid.device('0001:001:00', { parser : hid.parser.keyboard });
 
 dev.on("data", function(dat) {
     console.log(dat); // easily consumed data format!
