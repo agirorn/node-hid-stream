@@ -56,8 +56,8 @@ __The user has pressed w, a, s & d (simultaneously (why? I don't know))__
 {
     modifiers : {
         l_shift :   false,
-        l_control : true,
-        l_alt :     true,
+        l_control : false,
+        l_alt :     false,
         l_meta :    false,
         r_ctrl :    false,
         r_shift :   false,
