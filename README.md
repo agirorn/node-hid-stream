@@ -64,10 +64,10 @@ __The user has pressed w, a, s & d (simultaneously (why? I don't know))__
         r_alt :     false,
         r_meta :    false
     },
-    keyCodes: [
+    keyCodes : [
         26, 4, 22, 7
     ],
-    charCodes: [
+    charCodes : [
         'w', 'a', 's', 'd'
     ],
     errorStatus: false
