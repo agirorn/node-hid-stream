@@ -46,11 +46,6 @@ __The user has pressed Ctrl + Alt + Del__
     errorStatus : false
 }
 ```
-
-The data packet has additional convenience methods, `shift()`, `control()`, `alt()`, and `meta()` which return true if either the left or right key are down. The function `mod()` returns true if any of the modifier keys is pressed.
-
-Additionally, `empty()` returns true if there is no modifier or key currently down.
-
 __The user has pressed w, a, s & d (simultaneously (why? I don't know))__
 ```javascript
 {
@@ -73,6 +68,12 @@ __The user has pressed w, a, s & d (simultaneously (why? I don't know))__
     errorStatus: false
 }
 ```
+
+### Convenience Methods
+
+The data packet has additional convenience methods, `shift()`, `control()`, `alt()`, and `meta()` which return `true` if either the left or right of each key is pressed. The function `mod()` returns true if any of the modifier keys is pressed.
+
+Additionally, `empty()` returns true if there is no modifier or key currently down.
 
 ### Status
 
