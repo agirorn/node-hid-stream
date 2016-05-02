@@ -6,9 +6,9 @@ var hid        = require("node-hid"),
     util       = require("util");
 
 
-var hidDevice = function(path, opts) {
-    if (!path)        { return new Error("no HID path specified"); }
-    if (!opts)        { opts = {}; }
+var hidDevice = function(opts) {
+    opts = opts || {};
+    if (!opts.path && !(opts.vid && opts.pid))        { return new Error("no HID path or vid/pid specified"); }
 
     if (!opts.parser) {
         opts.parser = hidParsers.raw;
@@ -19,8 +19,10 @@ var hidDevice = function(path, opts) {
     var dev = this;
 
     this.opts   = opts;
-    this.path   = path;
-    this.device = new hid.HID(path);
+    this.path   = opts.path;
+    this.vid    = opts.vid;
+    this.pid    = opts.pid;
+    this.device = opts.path ? new hid.HID(opts.path) : new hid.HID(opts.vid, opts.pid);
 
     this.close = function close() {
         if (dev.device) {
