@@ -1,63 +1,63 @@
-"use strict";
+'use strict';
 
-var hid        = require("node-hid"),
-    hidParsers = require("./lib/parser"),
-    stream     = require("stream"),
-    util       = require("util");
+const hid = require('node-hid');
+const hidParsers = require('./lib/parser');
+const stream = require('stream');
+const util = require('util');
 
 
-var hidDevice = function(opts) {
-    opts = opts || {};
-    if (!opts.path && !(opts.vid && opts.pid))        { return new Error("no HID path or vid/pid specified"); }
+function hidDevice(opts) {
+  const options = opts || {};
+  if (!options.path && !(options.vid && options.pid)) {
+    return new Error('no HID path or vid/pid specified');
+  }
 
-    if (!opts.parser) {
-        opts.parser = hidParsers.raw;
-    } else if (typeof opts.parser !== "function") {
-        return new Error("Invalid parser function specified");
+  if (!options.parser) {
+    options.parser = hidParsers.raw;
+  } else if (typeof options.parser !== 'function') {
+    return new Error('Invalid parser function specified');
+  }
+
+  const device = this;
+
+  this.options = options;
+  this.path = options.path;
+  this.vid = options.vid;
+  this.pid = options.pid;
+  this.device = options.path ? new hid.HID(options.path) : new hid.HID(options.vid, options.pid);
+
+  this.close = function close() {
+    if (device.device) {
+      device.device.close();
     }
+    device.emit('close');
+  };
 
-    var device = this;
+  stream.Stream.call(this);
 
-    this.opts   = opts;
-    this.path   = opts.path;
-    this.vid    = opts.vid;
-    this.pid    = opts.pid;
-    this.device = opts.path ? new hid.HID(opts.path) : new hid.HID(opts.vid, opts.pid);
+  const parser = options.parser;
+  this.device.on('data', (data) => {
+    const parsed = parser(data);
+    device.emit('data', parsed);
+  });
 
-    this.close = function close() {
-        if (device.device) {
-            device.device.close();
-        }
-        device.emit("close");
-    };
+  this.device.on('error', (error) => {
+    device.emit('error', error);
+  });
 
-    stream.Stream.call(this);
+  this.device.on('end', (end) => {
+    device.emit('end', end);
+  });
 
-    var parser = opts.parser;
-    this.device.on('data', function(data) {
-      var d = parser(data);
-      device.emit('data', d);
-    });
-
-    this.device.on('error', function(error) {
-      device.emit('error', error);
-    });
-
-    this.device.on('end', function(end) {
-      device.emit('end', end);
-    });
-
-    return this;
-};
-
-
-var devices = function(vendorId, productId) {
-    return hid.devices(vendorId, productId);
-};
-
-
+  return this;
+}
 util.inherits(hidDevice, stream.Stream);
 
-exports.device  = hidDevice;
-exports.parser  = hidParsers;
+
+function devices(vendorId, productId) {
+  return hid.devices(vendorId, productId);
+}
+
+exports.device = hidDevice;
+exports.parser = hidParsers;
 exports.devices = devices;

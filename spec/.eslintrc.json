@@ -1,5 +1,4 @@
 {
-  "extends": "airbnb-base",
   "env": {
     "jasmine": true
   }
