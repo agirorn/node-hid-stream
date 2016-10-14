@@ -3,6 +3,9 @@
   "version": "2.1.0",
   "description": "Streaming HID events in Node.js",
   "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
     "coverage": "istanbul cover jasmine && istanbul check-cover",
     "dev": "nodemon --exec 'clear && npm run test --silent && clear && npm run eslint --silent'",
