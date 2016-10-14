@@ -16,7 +16,7 @@ var hidDevice = function(opts) {
         return new Error("Invalid parser function specified");
     }
 
-    var dev = this;
+    var device = this;
 
     this.opts   = opts;
     this.path   = opts.path;
@@ -25,16 +25,27 @@ var hidDevice = function(opts) {
     this.device = opts.path ? new hid.HID(opts.path) : new hid.HID(opts.vid, opts.pid);
 
     this.close = function close() {
-        if (dev.device) {
-            dev.device.close();
+        if (device.device) {
+            device.device.close();
         }
-        dev.emit("close");
+        device.emit("close");
     };
 
     stream.Stream.call(this);
 
-    this.parser = opts.parser.bind(this);
-    this.device.read(this.parser);
+    var parser = opts.parser;
+    this.device.on('data', function(data) {
+      var d = parser(data);
+      device.emit('data', d);
+    });
+
+    this.device.on('error', function(error) {
+      device.emit('error', error);
+    });
+
+    this.device.on('end', function(end) {
+      device.emit('end', end);
+    });
 
     return this;
 };
