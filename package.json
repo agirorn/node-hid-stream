@@ -3,10 +3,23 @@
   "version": "2.1.0",
   "description": "Streaming HID events in Node.js",
   "main": "index.js",
+  "scripts": {
+    "coverage": "istanbul cover jasmine && istanbul check-cover",
+    "dev": "nodemon --exec 'clear && npm run test --silent && clear && npm run eslint --silent'",
+    "eslint": "eslint spec examples",
+    "test": "jasmine"
+  },
   "dependencies": {
     "node-hid": "^0.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.5.2",
+    "nodemon": "^1.11.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/emilyrose/hidstream.git"

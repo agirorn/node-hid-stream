@@ -1,0 +1,39 @@
+verbose: false
+instrumentation:
+    root: .
+    default-excludes: true
+    include-all-sources: true
+    excludes: ['spec/**']
+    embed-source: false
+    variable: __coverage__
+    compact: true
+    preserve-comments: false
+    complete-copy: false
+    save-baseline: false
+    baseline-file: ./coverage/coverage-baseline.json
+check:
+    global:
+        statements: 80
+        branches: 80
+        functions: 80
+        lines: 80
+        excludes: []
+    each:
+        statements: 80
+        branches: 80
+        functions: 80
+        lines: 80
+        excludes: []
+reporting:
+    print: summary
+    reports:
+        - lcov
+    dir: ./coverage
+    watermarks:
+        statements: [50, 81]
+        branches: [80, 81]
+        functions: [50, 81]
+        lines: [50, 81]
+hooks:
+    hook-run-in-context: false
+    post-require-hook: null
