@@ -2,7 +2,7 @@
   "name": "hidstream",
   "version": "2.1.0",
   "description": "Streaming HID events in Node.js",
-  "main": "index.js",
+  "main": "lib/hidstream.js",
   "engines": {
     "node": ">=4"
   },
@@ -21,7 +21,9 @@
     "eslint-plugin-import": "^2.0.1",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "proxyquire": "^1.7.10",
+    "underscore": "^1.8.3"
   },
   "repository": {
     "type": "git",

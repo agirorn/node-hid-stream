@@ -3,7 +3,7 @@ instrumentation:
     root: .
     default-excludes: true
     include-all-sources: true
-    excludes: ['spec/**']
+    excludes: ['spec/**', 'examples/**', 'lib/parsers/new-line.js']
     embed-source: false
     variable: __coverage__
     compact: true
