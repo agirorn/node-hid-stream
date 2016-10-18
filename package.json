@@ -1,7 +1,7 @@
 {
-  "name": "hidstream",
-  "version": "2.1.0",
-  "description": "Streaming HID events in Node.js",
+  "name": "node-hid-stream",
+  "version": "0.0.0",
+  "description": "Stream data from HID device in Node.j",
   "main": "lib/hidstream.js",
   "engines": {
     "node": ">=4"
@@ -27,14 +27,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/emilyrose/hidstream.git"
+    "url": "https://github.com/agirorn/node-hid-stream.git"
   },
   "keywords": [
+    "USB",
     "HID",
-    "stream",
+    "barcode",
+    "device",
     "human",
     "input",
-    "device"
+    "keyboard",
+    "stream"
   ],
   "author": "Emily Rose <emily@contactvibe.com>",
   "license": "MIT",
