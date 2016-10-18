@@ -28,18 +28,21 @@ describe('hidstreeam', () => {
     });
 
     it('retruns error when path is provided', () => {
-      const device = new Hidstream();
-      expect(device).toEqual(new Error('no HID path or vid/pid specified'));
+      expect(() => {
+        new Hidstream(); // eslint-disable-line no-new
+      }).toThrowError('no HID path or vid/pid specified');
     });
 
     it('returns error when vid is only provided', () => {
-      const device = new Hidstream({ vid: 3232 });
-      expect(device).toEqual(new Error('no HID path or vid/pid specified'));
+      expect(() => {
+        new Hidstream({ vid: 3232 }); // eslint-disable-line no-new
+      }).toThrowError('no HID path or vid/pid specified');
     });
 
     it('returns error when pid is only provided', () => {
-      const device = new Hidstream({ pid: 3232 });
-      expect(device).toEqual(new Error('no HID path or vid/pid specified'));
+      expect(() => {
+        new Hidstream({ pid: 3232 }); // eslint-disable-line no-new
+      }).toThrowError('no HID path or vid/pid specified');
     });
 
     // it('returns error when paswer is not a function', () => {
