@@ -1,16 +1,13 @@
 #!/usr/bin/env node
 
-const hid = require('../');
+const Keyboard = require('../').Keyboard;
 
-const Device = hid.device;
-const keyboard = hid.parser.keyboard;
 const HONEYWELL = 3118;
 const VOYAGER_1450G = 3233;
 
-const scanner = new Device({
+const scanner = new Keyboard({
   vid: HONEYWELL,
   pid: VOYAGER_1450G,
-  parser: keyboard,
 });
 
 function closeScanner() {

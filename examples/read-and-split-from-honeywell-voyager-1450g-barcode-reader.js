@@ -1,16 +1,13 @@
 #!/usr/bin/env node
 
-const hid = require('../');
+const KeyboardLines = require('../').KeyboardLines;
 
-const Device = hid.device;
-const newline = hid.parser.newline;
 const HONEYWELL = 3118;
 const VOYAGER_1450G = 3233;
 
-const scanner = new Device({
+const scanner = new KeyboardLines({
   vid: HONEYWELL,
   pid: VOYAGER_1450G,
-  parser: newline,
 });
 
 function closeScanner() {
