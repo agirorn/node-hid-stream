@@ -1,16 +1,16 @@
 'use strict';
 
-const hidPacket = require('../../../lib/parsers/keyboard/hid-keyboard-packet');
+const HidKeyboardPacket = require('../../../lib/parsers/keyboard/hid-keyboard-packet');
 
-describe('hidPacket', () => {
+describe('HidKeyboardPacket', () => {
   let packet;
 
   beforeEach(() => {
-    packet = hidPacket();
+    packet = new HidKeyboardPacket();
   });
 
   it('should be defined', () => {
-    expect(hidPacket).toBeDefined();
+    expect(HidKeyboardPacket).toBeDefined();
   });
 
   describe('defaults', () => {
