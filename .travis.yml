@@ -3,4 +3,7 @@ node_js:
   - "4"
   - "4.5"
   - "4.6"
-before_install: if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install libusb-1.0-0-dev
+  - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
