@@ -30,8 +30,8 @@
     "url": "https://github.com/agirorn/node-hid-stream.git"
   },
   "keywords": [
-    "USB",
     "HID",
+    "USB",
     "barcode",
     "device",
     "human",
