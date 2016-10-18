@@ -13,7 +13,9 @@
     "test": "jasmine"
   },
   "dependencies": {
-    "node-hid": "^0.5.1"
+    "node-hid": "^0.5.1",
+    "split": "^1.0.0",
+    "through": "^2.3.8"
   },
   "devDependencies": {
     "eslint": "^3.7.1",
