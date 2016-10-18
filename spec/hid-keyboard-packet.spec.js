@@ -1,6 +1,6 @@
 'use strict';
 
-const HidKeyboardPacket = require('../../../lib/parsers/keyboard/hid-keyboard-packet');
+const HidKeyboardPacket = require('../lib/hid-keyboard-packet');
 
 describe('HidKeyboardPacket', () => {
   let packet;

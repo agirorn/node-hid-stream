@@ -1,5 +1,5 @@
 const _ = require('underscore');
-const keyboard = require('../../lib/parsers/keyboard');
+const keyboard = require('../lib/keyboard-parser');
 
 const NO_MODIFIERS = {
   l_shift: false,
