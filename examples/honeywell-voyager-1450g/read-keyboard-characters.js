@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-const Hidstream = require('../').Hidstream;
+const KeyboardCharacters = require('../../').KeyboardCharacters;
 
 const HONEYWELL = 3118;
 const VOYAGER_1450G = 3233;
 
-const scanner = new Hidstream({
+const scanner = new KeyboardCharacters({
   vid: HONEYWELL,
   pid: VOYAGER_1450G,
 });
@@ -20,6 +20,4 @@ process.on('exit', closeScanner);
 // Close scanner on ctrl+c event
 process.on('SIGINT', closeScanner);
 
-scanner.on('data', (data) => {
-  console.log(data); // easily consumed data format!
-});
+scanner.pipe(process.stdout);
