@@ -13,7 +13,7 @@ const nodeHid = {
   HID,
   devices() {},
 };
-const hidstream = proxyquire('../', {
+const hidstream = proxyquire('../lib/hidstream', {
   'node-hid': nodeHid,
 });
 const Device = hidstream.device;

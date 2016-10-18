@@ -2,7 +2,7 @@
   "name": "node-hid-stream",
   "version": "0.0.0",
   "description": "Stream data from HID device in Node.j",
-  "main": "lib/hidstream.js",
+  "main": "lib/node-hid-stream.js",
   "engines": {
     "node": ">=4"
   },
