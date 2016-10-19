@@ -30,19 +30,19 @@ describe('hidstreeam', () => {
     it('retruns error when path is provided', () => {
       expect(() => {
         new Hidstream(); // eslint-disable-line no-new
-      }).toThrowError('no HID path or vid/pid specified');
+      }).toThrowError('no HID path or vendorId/productId specified');
     });
 
-    it('returns error when vid is only provided', () => {
+    it('returns error when vendorId is only provided', () => {
       expect(() => {
-        new Hidstream({ vid: 3232 }); // eslint-disable-line no-new
-      }).toThrowError('no HID path or vid/pid specified');
+        new Hidstream({ vendorId: 3232 }); // eslint-disable-line no-new
+      }).toThrowError('no HID path or vendorId/productId specified');
     });
 
-    it('returns error when pid is only provided', () => {
+    it('returns error when productId is only provided', () => {
       expect(() => {
-        new Hidstream({ pid: 3232 }); // eslint-disable-line no-new
-      }).toThrowError('no HID path or vid/pid specified');
+        new Hidstream({ productId: 3232 }); // eslint-disable-line no-new
+      }).toThrowError('no HID path or vendorId/productId specified');
     });
 
     // it('returns error when paswer is not a function', () => {
@@ -60,20 +60,20 @@ describe('hidstreeam', () => {
       expect(device.path).toEqual(3232);
     });
 
-    it('has vid and pid', () => {
-      const device = new Hidstream({ vid: 3232, pid: 1212 });
-      expect(device.vid).toEqual(3232);
-      expect(device.pid).toEqual(1212);
+    it('has vendorId and productId', () => {
+      const device = new Hidstream({ vendorId: 3232, productId: 1212 });
+      expect(device.vendorId).toEqual(3232);
+      expect(device.productId).toEqual(1212);
     });
 
     it('has device', () => {
-      const device = new Hidstream({ vid: 3232, pid: 1212 });
+      const device = new Hidstream({ vendorId: 3232, productId: 1212 });
       expect(device.device).toBeDefined();
     });
 
     describe('#close', () => {
       it('should call device.close', () => {
-        const device = new Hidstream({ vid: 3232, pid: 1212 });
+        const device = new Hidstream({ vendorId: 3232, productId: 1212 });
         spyOn(device.device, 'close');
         device.close();
         expect(device.device.close).toHaveBeenCalled();
@@ -81,7 +81,7 @@ describe('hidstreeam', () => {
 
       it('should emmit close', () => {
         const onClose = jasmine.createSpy('on close');
-        const device = new Hidstream({ vid: 3232, pid: 1212 });
+        const device = new Hidstream({ vendorId: 3232, productId: 1212 });
         device.on('close', onClose);
         device.close();
         expect(onClose).toHaveBeenCalled();
@@ -91,7 +91,7 @@ describe('hidstreeam', () => {
     describe('on end', () => {
       it('should call device.close', () => {
         const onEnd = jasmine.createSpy('on end');
-        const device = new Hidstream({ vid: 3232, pid: 1212 });
+        const device = new Hidstream({ vendorId: 3232, productId: 1212 });
         device.on('end', onEnd);
         device.device.emit('end');
         expect(onEnd).toHaveBeenCalled();
@@ -101,7 +101,7 @@ describe('hidstreeam', () => {
     describe('on error', () => {
       it('should call device.close', () => {
         const onError = jasmine.createSpy('on error');
-        const device = new Hidstream({ vid: 3232, pid: 1212 });
+        const device = new Hidstream({ vendorId: 3232, productId: 1212 });
         device.on('error', onError);
         device.device.emit('error', 'Error Message');
         expect(onError).toHaveBeenCalledWith('Error Message');
@@ -111,7 +111,7 @@ describe('hidstreeam', () => {
     describe('on data', () => {
       it('should call device.close', () => {
         const onData = jasmine.createSpy('on data');
-        const device = new Hidstream({ vid: 3232, pid: 1212 });
+        const device = new Hidstream({ vendorId: 3232, productId: 1212 });
         device.on('data', onData);
         device.device.emit('data', 'data');
         expect(onData).toHaveBeenCalledWith('data');
