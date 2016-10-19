@@ -24,3 +24,14 @@ process.on('SIGINT', closeScanner);
 scanner.on('data', (data) => {
   console.log(data); // easily consumed data format!
 });
+
+scanner.on('error', (error) => {
+  console.log('scanner error', error); // easily consumed data format!
+});
+
+process.on('uncaughtException', (error) => {
+  console.log(`Uncaught Exception:${error}`);
+  console.log(`stack:${error.stack}`);
+  console.log(`stack:${(new Error(error)).stack}`);
+});
+
