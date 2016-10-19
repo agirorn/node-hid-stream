@@ -6,8 +6,8 @@ const HONEYWELL = 3118;
 const VOYAGER_1450G = 3233;
 
 const scanner = new Keyboard({
-  vid: HONEYWELL,
-  pid: VOYAGER_1450G,
+  vendorId: HONEYWELL,
+  productId: VOYAGER_1450G,
 });
 
 function closeScanner() {

@@ -1,10 +1,6 @@
 const nodeHidSteam = require('../');
 
 describe('node-hid-stream', () => {
-  it('should be defined', () => {
-    expect(nodeHidSteam).toBeDefined();
-  });
-
   it('should have Hidstream', () => {
     expect(nodeHidSteam.Hidstream).toBeDefined();
   });

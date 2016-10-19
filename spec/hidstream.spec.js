@@ -18,37 +18,24 @@ const Hidstream = proxyquire('../lib/hidstream', {
 });
 
 describe('hidstreeam', () => {
-  it('is defined', () => {
-    expect(Hidstream).toBeDefined();
-  });
-
   describe('hidstream.device', () => {
-    it('is defined', () => {
-      expect(Hidstream).toBeDefined();
-    });
-
-    it('retruns error when path is provided', () => {
+    it('throws error when no path, vendorId or productId is provided', () => {
       expect(() => {
         new Hidstream(); // eslint-disable-line no-new
       }).toThrowError('no HID path or vendorId/productId specified');
     });
 
-    it('returns error when vendorId is only provided', () => {
+    it('throws error when only vendorId is only provided', () => {
       expect(() => {
         new Hidstream({ vendorId: 3232 }); // eslint-disable-line no-new
-      }).toThrowError('no HID path or vendorId/productId specified');
+      }).toThrowError('no HID productId specified');
     });
 
-    it('returns error when productId is only provided', () => {
+    it('throws error when only productId is provided', () => {
       expect(() => {
         new Hidstream({ productId: 3232 }); // eslint-disable-line no-new
-      }).toThrowError('no HID path or vendorId/productId specified');
+      }).toThrowError('no HID vendorId specified');
     });
-
-    // it('returns error when paswer is not a function', () => {
-    //   const device = new Hidstream({ path: 3232, parser: 'parser' });
-    //   expect(device).toEqual(new Error('Invalid parser function specified'));
-    // });
 
     it('has options', () => {
       const device = new Hidstream({ path: 3232 });

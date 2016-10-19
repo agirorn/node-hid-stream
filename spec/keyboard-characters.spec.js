@@ -10,10 +10,6 @@ const KeyboardCharacters = proxyquire('../lib/keyboard-characters', {
 });
 
 describe('KeyboardCharacters', () => {
-  it('shouldbe defined', () => {
-    expect(KeyboardCharacters).toBeDefined();
-  });
-
   it('close device', () => {
     const lines = new KeyboardCharacters();
     spyOn(lines.device, 'close');

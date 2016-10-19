@@ -10,10 +10,6 @@ const KeyboardLines = proxyquire('../lib/keyboard-lines', {
 });
 
 describe('KeyboardLines', () => {
-  it('shouldbe defined', () => {
-    expect(KeyboardLines).toBeDefined();
-  });
-
   describe('.close', () => {
     it('closes the device', () => {
       const keyboard = new KeyboardLines();

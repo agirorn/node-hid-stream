@@ -11,10 +11,6 @@ const Keyboard = proxyquire('../lib/keyboard', {
 });
 
 describe('Keyboard', () => {
-  it('shouldbe defined', () => {
-    expect(Keyboard).toBeDefined();
-  });
-
   describe('.close', () => {
     it('closes the device', () => {
       const keyboard = new Keyboard();

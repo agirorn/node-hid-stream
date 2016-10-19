@@ -9,10 +9,6 @@ describe('HidKeyboardPacket', () => {
     packet = new HidKeyboardPacket();
   });
 
-  it('should be defined', () => {
-    expect(HidKeyboardPacket).toBeDefined();
-  });
-
   describe('defaults', () => {
     it('should set modifiers.l_shift to false', () => {
       expect(packet.modifiers.l_shift).toBe(false);

@@ -20,10 +20,6 @@ function modifiers(options) {
 }
 
 describe('keyboard parser', () => {
-  it('is defined', () => {
-    expect(keyboard).toBeDefined();
-  });
-
   it('parses 9', () => {
     const keys = keyboard(new Buffer([0, 0, 38, 0, 0, 0, 0, 0]));
     expect(keys.keyCodes).toEqual([38]);
