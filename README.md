@@ -17,6 +17,8 @@ Available Streams are:
 ----------
 ## Installation
 
+You have to make sure you can install [node-hid](https://github.com/node-hid/node-hid) before you install this module.
+
 ```shell
 npm install node-hid-stream
 ```
