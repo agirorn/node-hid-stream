@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/node-hid-stream.svg)](https://badge.fury.io/js/node-hid-stream)
+[![Build Status](https://travis-ci.org/agirorn/node-hid-stream.svg?branch=master)](https://travis-ci.org/agirorn/nnode-hid-stream)
+
 # NODE HID STREAM
 Stream data from HID device in Node.js
 
