@@ -1,21 +1,6 @@
 'use strict';
 
-const proxyquire = require('proxyquire');
-const EventEmitter = require('events').EventEmitter;
-
-function HID() {
-  const device = new EventEmitter();
-  device.close = function close() {};
-  return device;
-}
-
-const nodeHid = {
-  HID,
-  devices() {},
-};
-const Hidstream = proxyquire('../lib/hidstream', {
-  'node-hid': nodeHid,
-});
+const Hidstream = require('../lib/hidstream');
 
 describe('hidstreeam', () => {
   describe('hidstream.device', () => {

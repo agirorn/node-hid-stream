@@ -1,12 +1,14 @@
 language: node_js
+sudo: required
+dist: trusty
 node_js:
   - "4"
-  - "4.5"
-  - "4.6"
-compiler:
-  - clang
-  - gcc
+env:
+  - CXX=g++-4.8
 before_install:
   - sudo apt-get update
-  - sudo apt-get install libusb-1.0-0-dev
+  - sudo apt-get install build-essential git -y
+  - sudo apt-get install libudev-dev -y
+  - sudo apt-get install libusb-1.0-0-dev -y
+  - sudo apt-get install gcc-4.8 g++-4.8 -y
   - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
