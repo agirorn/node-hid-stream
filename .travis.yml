@@ -1,6 +1,7 @@
 language: node_js
 sudo: required
 dist: trusty
+script: npm run ci
 node_js:
   - "4"
 env:

@@ -8,9 +8,10 @@
     "node": ">=4"
   },
   "scripts": {
+    "ci": "npm coverage && npm run lint",
     "coverage": "istanbul cover jasmine && istanbul check-cover",
-    "dev": "nodemon --exec 'clear && npm run test --silent && clear && npm run eslint --silent'",
-    "eslint": "eslint spec examples",
+    "dev": "nodemon --exec 'clear && npm run test --silent && clear && npm run lint --silent'",
+    "lint": "eslint spec examples",
     "test": "jasmine"
   },
   "dependencies": {
