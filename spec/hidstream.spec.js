@@ -16,9 +16,21 @@ describe('hidstreeam', () => {
       }).toThrowError('no HID productId specified');
     });
 
+    it('throws error when only vendorId is provided as zero', () => {
+      expect(() => {
+        new Hidstream({ vendorId: 0 }); // eslint-disable-line no-new
+      }).toThrowError('no HID productId specified');
+    });
+
     it('throws error when only productId is provided', () => {
       expect(() => {
         new Hidstream({ productId: 3232 }); // eslint-disable-line no-new
+      }).toThrowError('no HID vendorId specified');
+    });
+
+    it('throws error when only productId is provided as zero', () => {
+      expect(() => {
+        new Hidstream({ productId: 0 }); // eslint-disable-line no-new
       }).toThrowError('no HID vendorId specified');
     });
 
@@ -36,6 +48,12 @@ describe('hidstreeam', () => {
       const device = new Hidstream({ vendorId: 3232, productId: 1212 });
       expect(device.vendorId).toEqual(3232);
       expect(device.productId).toEqual(1212);
+    });
+
+    it('accepts zero as vendorId and productId', () => {
+      const device = new Hidstream({ vendorId: 0, productId: 0 });
+      expect(device.vendorId).toEqual(0);
+      expect(device.productId).toEqual(0);
     });
 
     it('has device', () => {
