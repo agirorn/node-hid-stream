@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "node-hid": "^0.5.1",
-    "split": "^1.0.0"
+    "split": "^1.0.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "eslint": "^3.7.1",
@@ -26,8 +27,7 @@
     "jasmine": "^2.5.2",
     "nodemon": "^1.11.0",
     "mockery": "^2.0.0",
-    "proxyquire": "^1.7.10",
-    "underscore": "^1.8.3"
+    "proxyquire": "^1.7.10"
   },
   "repository": {
     "type": "git",
