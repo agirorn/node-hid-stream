@@ -21,7 +21,7 @@ function modifiers(options) {
 
 describe('keyboard parser', () => {
   it('parses 9', () => {
-    const keys = keyboard(new Buffer([0, 0, 38, 0, 0, 0, 0, 0]));
+    const keys = keyboard(Buffer.from([0, 0, 38, 0, 0, 0, 0, 0]));
     expect(keys.keyCodes).toEqual([38]);
     expect(keys.charCodes).toEqual(['9', '', '', '', '', '']);
     expect(keys.errorStatus).toBeFalsy();
@@ -29,7 +29,7 @@ describe('keyboard parser', () => {
   });
 
   it('parses C', () => {
-    const keys = keyboard(new Buffer([2, 0, 6, 0, 0, 0, 0, 0]));
+    const keys = keyboard(Buffer.from([2, 0, 6, 0, 0, 0, 0, 0]));
     expect(keys.keyCodes).toEqual([6]);
     expect(keys.charCodes).toEqual(['C', '', '', '', '', '']);
     expect(keys.errorStatus).toBeFalsy();
@@ -37,13 +37,13 @@ describe('keyboard parser', () => {
   });
 
   it('ignores keys 3 ore less', () => {
-    const keys = keyboard(new Buffer([0, 0, 1, 2, 3, 1, 2, 3]));
+    const keys = keyboard(Buffer.from([0, 0, 1, 2, 3, 1, 2, 3]));
     expect(keys.keyCodes).toEqual([]);
     expect(keys.charCodes).toEqual(['', '', '', '', '', '']);
   });
 
   it('Detect keyboard rollover error', () => {
-    const keys = keyboard(new Buffer([0, 0, 1, 1, 1, 1, 1, 1]));
+    const keys = keyboard(Buffer.from([0, 0, 1, 1, 1, 1, 1, 1]));
     expect(keys.errorStatus).toBeTruthy();
   });
 
@@ -63,14 +63,14 @@ describe('keyboard parser', () => {
       { bit: 128, modifiers: modifiers({ r_meta: true }) },
     ].forEach((current) => {
       it(`detects modifiers for bit ${current.bit}`, () => {
-        const keys = keyboard(new Buffer([current.bit]));
+        const keys = keyboard(Buffer.from([current.bit]));
         expect(keys.modifiers).toEqual(current.modifiers);
         expect(keys.mod()).toBeTruthy();
       });
     });
 
     it('detect no modifiers', () => {
-      const keys = keyboard(new Buffer([0]));
+      const keys = keyboard(Buffer.from([0]));
       expect(keys.modifiers).toEqual(NO_MODIFIERS);
       expect(keys.mod()).toBeFalsy();
     });
@@ -229,7 +229,7 @@ describe('keyboard parser', () => {
 
     ].forEach((current) => {
       it(`detects lowercase charCode for key ${current.bit}`, () => {
-        const keys = keyboard(new Buffer([0, 0, current.key, 0, 0, 0, 0, 0]));
+        const keys = keyboard(Buffer.from([0, 0, current.key, 0, 0, 0, 0, 0]));
         expect(keys.keyCodes).toEqual([current.key]);
         expect(keys.charCodes).toEqual([current.charCode, '', '', '', '', '']);
       });
@@ -389,7 +389,7 @@ describe('keyboard parser', () => {
 
       ].forEach((current) => {
         it(`detects lowercase charCode for key ${current.bit}`, () => {
-          const data = new Buffer([shiftBit, 0, current.key, 0, 0, 0, 0, 0]);
+          const data = Buffer.from([shiftBit, 0, current.key, 0, 0, 0, 0, 0]);
           const keys = keyboard(data);
           expect(keys.keyCodes).toEqual([current.key]);
           expect(keys.charCodes).toEqual([current.charCode, '', '', '', '', '']);
