@@ -3,7 +3,9 @@ sudo: required
 dist: trusty
 script: npm run ci
 node_js:
-  - "4"
+  - "8"
+  - "10"
+  - "12"
 env:
   - CXX=g++-4.8
 before_install:
