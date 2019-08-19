@@ -7,7 +7,7 @@ class Hidstream extends FakeStream {}
 
 const Keyboard = proxyquire('../lib/keyboard', {
   './hidstream': Hidstream,
-  './keyboard-parser': data => data,
+  './keyboard-parser': (data) => data,
 });
 
 describe('Keyboard', () => {

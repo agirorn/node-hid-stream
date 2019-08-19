@@ -1,5 +1,5 @@
 const mockery = require('mockery');
-const EventEmitter = require('events').EventEmitter;
+const { EventEmitter } = require('events');
 
 mockery.enable({
   warnOnUnregistered: false,

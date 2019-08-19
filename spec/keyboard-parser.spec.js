@@ -238,7 +238,7 @@ describe('keyboard parser', () => {
 
   describe('upper-case case keys', () => {
     [
-      2,  // left shift
+      2, // left shift
       32, // right shift
     ].forEach((shiftBit) => {
       [
@@ -398,4 +398,3 @@ describe('keyboard parser', () => {
     });
   });
 });
-

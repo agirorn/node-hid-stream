@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const KeyboardLines = require('../../').KeyboardLines;
+const { KeyboardLines } = require('../../');
 
 const HONEYWELL = 3118;
 const VOYAGER_1450G = 3233;
@@ -31,4 +31,3 @@ process.on('uncaughtException', (error) => {
   console.log(`stack:${error.stack}`);
   console.log(`stack:${(new Error(error)).stack}`);
 });
-

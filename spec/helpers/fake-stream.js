@@ -1,6 +1,6 @@
 'use strict';
 
-const Stream = require('stream').Stream;
+const { Stream } = require('stream');
 
 class FakeStream extends Stream {
   constructor() {
